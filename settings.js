@@ -5,8 +5,8 @@ const settings = {
   botOwner: 'Hector Manuel', 
   timezone: 'Africa/Accra',
   prefix: '.',
-  ownerNumber: '+233509977126', 
-  AUTO_STATUS_REACT: 'true',
+  ownerNumber: '+242066969267', 
+  AUTO_STATUS_REACT: 'faise',
   AUTO_STATUS_REPLY: 'false',
   AUTO_STATUS_MSG: 'Status Viewed Queen Riam',
 
@@ -18,7 +18,7 @@ const settings = {
   
 
   giphyApiKey: 'qnl7ssQChTdPjsKta2Ax2LMaGXz303tq',
-  commandMode: "public",
+  commandMode: "private",
   description: "This is a bot for managing group commands and automating tasks.",
   version: "2.0.0",
 };
