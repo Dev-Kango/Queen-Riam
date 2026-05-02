@@ -23,6 +23,9 @@ global.APIKeys = {
     'https://api-fgmods.ddns.net': 'fg-dylux'
 };
 
+global.ownername = "Bunty"
+global.ownernumber = "923073022765" // 
+global.tglink = "https://t.me/AapkaLink" // https://t.me/buntycontro
 module.exports = {
     WARN_COUNT: 3,
     APIs: global.APIs,
