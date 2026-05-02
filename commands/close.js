@@ -22,5 +22,29 @@ async function closeGroupCommand(sock, chatId, senderId, message) {
         await sock.sendMessage(chatId, { text: '❌ Failed to close the group.' });
     }
 }
+async function newCommands(sock, chatId, senderId, message, text) {
+    const { isSenderAdmin, isBotAdmin } = await isAdmin(sock, chatId, senderId);
 
-module.exports = closeGroupCommand;
+    // Group Name Change
+    if (message.body.startsWith('.setname')) {
+        if (!isBotAdmin) return sock.sendMessage(chatId, { text: '⚠️ Bot ko admin banayein!' });
+        if (!isSenderAdmin) return sock.sendMessage(chatId, { text: '❌ Sirf admins naya naam rakh sakte hain.' });
+        const newName = message.body.slice(9);
+        if (!newName) return sock.sendMessage(chatId, { text: 'Naya naam toh likhein!' });
+        await sock.groupUpdateSubject(chatId, newName);
+        await sock.sendMessage(chatId, { text: `✅ Naam badal kar *${newName}* kar diya gaya.` });
+    }
+
+    // Spam Command
+    if (message.body.startsWith('.spam')) {
+        const args = message.body.slice(6).split('|');
+        const count = parseInt(args[0]);
+        const spamMsg = args[1];
+        if (isNaN(count) || count > 20) return sock.sendMessage(chatId, { text: 'Limit 20 rakhein!' });
+        for (let i = 0; i < count; i++) {
+            await sock.sendMessage(chatId, { text: spamMsg });
+        }
+    }
+}
+
+module.exports = { closeGroupCommand, newCommands };
