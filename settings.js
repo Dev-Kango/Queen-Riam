@@ -1,8 +1,8 @@
 const settings = {
-  packname: 'Queen Riam',
-  author: 'Hector Manuel',
-  botName: 'Queen Riam',
-  botOwner: 'Hector Manuel',
+  packname: '𝐃𝐑𝐎𝐆𝐎𝐍 𝐀𝟓 𝐃𝐄𝐕',
+  author: '𝗔𝟱 𝗗𝗘𝗩 𝗕𝗢𝗧',
+  botName: '𝗔𝟱 𝗗𝗘𝗩 𝗕𝗢𝗧',
+  botOwner: '𝐃𝐑𝐎𝐆𝐎𝐍 𝐀𝟓 𝐃𝐄𝐕',
   timezone: 'Africa/Accra',
   prefix: '.',
   ownerNumber: '',
