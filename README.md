@@ -21,14 +21,7 @@
 
 ## About
 
-**QUEEN RIAM** is a modern WhatsApp multi-device bot built with **Node.js**, **Baileys v7**, and **Express**. Designed for simplicity, extensibility, and reliable automation for both group and personal chats.
-
-- 🔌 Drop-in plugin system — add commands without touching core files
-- 🗄️ Flexible session storage — local folder, SQLite, PostgreSQL, MySQL, MongoDB, Supabase, or Redis
-- 🌍 Multi-language support — EN, ES, PT, FR, HA, HI
-- 🔞 NSFW category (18+ toggle, 20 commands via pic.re)
-- ⚡ Hot-reload — plugins reload without restarting the bot
-- 🐳 Docker-ready and one-click deployable
+**QUEEN RIAM** is a modern WhatsApp multi-device bot built with **Node.js** and **Baileys**. It works in both group and private chats, supports multiple languages, and lets you install extra commands instantly — no coding required.
 
 > Please use responsibly and for educational purposes only.
 
@@ -48,8 +41,6 @@ Generate your Session ID to connect your WhatsApp account:
 
 ## Deploy
 
-Deploy QUEEN RIAM with one click on any supported platform:
-
 <p align="center">
   <a href="https://dashboard.heroku.com/new?template=https://github.com/Dev-Kango/Queen-Riam"><img src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white" /></a>
   <a href="https://railway.com/deploy/VyW5O7?referralCode=wXCnaU&utm_medium=integration&utm_source=template&utm_campaign=generic"><img src="https://img.shields.io/badge/Railway-0B0D0E?style=for-the-badge&logo=railway&logoColor=white" /></a>
@@ -58,485 +49,194 @@ Deploy QUEEN RIAM with one click on any supported platform:
   <a href="https://dashboard.katabump.com/auth/login#14aeb2"><img src="https://img.shields.io/badge/KataBump-5B4B8A?style=for-the-badge&logo=rocket&logoColor=white" /></a>
 </p>
 
-**VPS / Pterodactyl:** Clone the repo, copy `.env.example` → `.env`, fill in your values, run `npm install && npm start`. Use PM2 to keep it alive: `pm2 start index.js --name queen-riam`.
+**VPS / Pterodactyl:**
+```bash
+git clone https://github.com/Dev-Kango/Queen-Riam.git
+cd Queen-Riam
+npm install
+cp .env.example .env   # fill in your values
+npm start
+```
 
 ---
 
 ## Features
 
-| Feature | Description |
-|---------|-------------|
-| **Plugin System** | Drop any `.js` file into `plugins/` — it auto-loads, no restarts needed |
-| **Hot Reload** | Live plugin reload via file watcher (chokidar) |
-| **Multi-Device** | Full multi-device support via Baileys v7 RC |
-| **Session Backends** | Local folder (default), SQLite, PostgreSQL, MySQL, MongoDB, Supabase, Redis |
-| **Command Modes** | `public` (anyone) or `private` (owner/sudo only) |
-| **NSFW Category** | 20 image commands via pic.re — 18+ gated, no API key required |
-| **Auto Features** | Auto-status react/reply, auto-read, auto-type, auto-record |
-| **Multi-Language** | EN, ES, PT, FR, HA, HI — switchable per group |
-| **Group Tools** | Anti-link, anti-bad-word, anti-delete, welcome/goodbye, warn system |
-| **AI Commands** | Gemini, GPT, DeepSeek, image generation integrations |
-| **One-Click Deploy** | Heroku, Railway, Render, Koyeb, KataBump, VPS, Docker |
-| **Truecaller Lookup** | Phone number lookup with per-user cooldown |
-| **Clean Logging** | User-friendly logs, pino silent mode in production |
+| | Feature |
+|--|---------|
+| 🔌 | Install extra commands instantly via a link — no coding needed |
+| ♻️ | Plugins load live — no restart required |
+| 📱 | Full multi-device support |
+| 🌍 | Multi-language — EN, ES, PT, FR, HA, HI |
+| 🔞 | NSFW category (18+, 20 commands, owner-toggled) |
+| 👥 | Group tools — anti-link, anti-bad-word, welcome/goodbye, warn system |
+| 🤖 | AI commands — Gemini, GPT, DeepSeek, image generation |
+| ⚙️ | Auto-status react/reply, auto-read, auto-type |
+| 🗄️ | Session storage — local folder, Supabase, PostgreSQL, MySQL, MongoDB, Redis |
+| 🐳 | Docker-ready |
 
 ---
 
-## Requirements
+## Setup
 
-| Requirement | Version |
-|-------------|---------|
-| Node.js | `>= 20.x` |
-| npm | `>= 10.x` |
-| Git | Latest |
-| FFmpeg | Required for media commands |
-| WhatsApp | Active mobile account |
+### 1. Fill in your `.env`
+
+Copy `.env.example` to `.env` and set these values:
+
+| Variable | What it is |
+|----------|------------|
+| `OWNER_NUMBER` | Your WhatsApp number with country code — no `+`. Example: `233501234567` |
+| `BOT_NAME` | What you want the bot to call itself |
+| `BOT_OWNER` | Your display name |
+| `PREFIX` | The symbol before commands. Default is `.` |
+| `TIMEZONE` | Your timezone. Example: `Africa/Accra`, `America/New_York` |
+| `COMMAND_MODE` | `public` — anyone can use commands · `private` — only you |
+| `SESSION_ID` | Leave blank to pair by code, or paste your ID from the pairing site |
+
+Everything else in `.env.example` is optional with safe defaults already set.
+
+### 2. Session Storage
+
+By default the bot saves its session to a folder on disk — perfect for VPS and Pterodactyl.
+
+If you're on a platform that **wipes files on restart** (Render free, Heroku, Railway), you need a database backend or the bot will ask you to re-pair every time. Set `DB_TYPE` in your `.env`:
+
+| `DB_TYPE` value | Platform |
+|-----------------|----------|
+| *(leave blank)* | VPS, Pterodactyl, local machine |
+| `supabase` | [supabase.com](https://supabase.com) — free, no card needed |
+| `mongodb` | [MongoDB Atlas](https://cloud.mongodb.com) — free 512 MB |
+| `postgres` | Railway Postgres, Neon, Heroku Postgres |
+| `redis` | Railway Redis, Render Redis, Upstash |
+| `sqlite` | VPS single-file option |
+| `mysql` | Railway MySQL, PlanetScale |
+
+Then set the matching connection variable (e.g. `SUPABASE_DB_URL`, `MONGO_URI`, `DATABASE_URL`, `REDIS_URL`). All examples are in `.env.example`.
 
 ---
 
-## Quick Start
+## 🔌 Installing Plugins
 
-```bash
-# 1. Clone
-git clone https://github.com/Dev-Kango/Queen-Riam.git
-cd Queen-Riam
+Plugins add new commands to your bot. Anyone can share a plugin as a **GitHub Gist link** or any raw `.js` URL — you install it with one message, no coding involved.
 
-# 2. Install dependencies
-npm install
+### Install a plugin
 
-# 3. Configure
-cp .env.example .env
-# Open .env and fill in OWNER_NUMBER, BOT_NAME, etc.
+Send this in any chat where your bot is active (owner only):
 
-# 4. Run
-npm start
-
-# Keep alive with PM2
-pm2 start index.js --name queen-riam
-pm2 save
+```
+.install https://gist.githubusercontent.com/username/abc123/raw/myplugin.js
 ```
 
-On first run the bot will print a **pairing code** in the terminal. Open WhatsApp → Linked Devices → Link with Phone Number and enter the code.
+The bot downloads the plugin, loads it immediately, and tells you which new commands were added. No restart needed.
+
+### Remove a plugin
+
+```
+.remove myplugin
+```
+
+Replace `myplugin` with the filename of the plugin you installed (without `.js`).
+
+### Reload all plugins
+
+```
+.reloadplugins
+```
+
+Forces a fresh reload of every plugin — useful after editing a plugin file directly on the server.
 
 ---
 
-## Environment Variables
+### Where to get plugins
 
-Copy `.env.example` to `.env`. Everything except `OWNER_NUMBER` has a safe default.
+- **GitHub Gist** — [gist.github.com](https://gist.github.com) — anyone can share a plugin as a public gist. Copy the **Raw** link and use `.install`.
+- **Raw GitHub files** — a direct link to any `.js` file on GitHub also works. Click the file → click **Raw** → copy the URL.
+- **Community sharing** — plugin links shared in groups or by the bot's developer can be installed the same way.
 
-| Variable | Required | Default | Description |
-|----------|----------|---------|-------------|
-| `OWNER_NUMBER` | ✅ | — | Your WhatsApp number (country code, no `+`). E.g. `233501234567` |
-| `BOT_NAME` | — | `Queen Riam` | Name shown in menus and headers |
-| `BOT_OWNER` | — | `Your Name` | Owner display name |
-| `PACK_NAME` | — | `Queen Riam` | Sticker pack name |
-| `PACK_AUTHOR` | — | `Your Name` | Sticker pack author |
-| `PREFIX` | — | `.` | Command prefix (`.`, `!`, `/`, etc.) |
-| `TIMEZONE` | — | `Africa/Lagos` | Your timezone for time-based features |
-| `COMMAND_MODE` | — | `public` | `public` = anyone can use · `private` = owner/sudo only |
-| `SESSION_ID` | — | — | Base64 session from the pairing site. Leave blank to pair via code |
-| `DB_TYPE` | — | *(blank)* | Session storage backend — see table below |
-| `AUTO_STATUS_REACT` | — | `false` | Auto-react to contacts' statuses |
-| `AUTO_STATUS_REPLY` | — | `false` | Auto-reply to contacts' statuses |
-| `AUTO_STATUS_MSG` | — | `Status Viewed` | Message sent when auto-replying to status |
-| `AUTOREAD` | — | `false` | Mark all incoming messages as read |
-| `AUTOTYPE` | — | `false` | Show typing indicator before replying |
-| `AUTORECORD` | — | `false` | Show recording indicator before voice replies |
-| `AUTORECORDTYPE` | — | `false` | Combined typing + recording indicator |
-| `GIPHY_API_KEY` | — | — | Optional. Get free at [giphy.com/developers](https://developers.giphy.com) |
-
-### Session Storage Backends (`DB_TYPE`)
-
-Leave `DB_TYPE` blank on a **VPS or Pterodactyl** — sessions are saved to the `/session` folder on disk by default.
-
-On platforms that **wipe the filesystem on restart** (Render free tier, Heroku, Railway ephemeral dynos) you **must** set `DB_TYPE` or the bot will re-pair on every restart.
-
-| `DB_TYPE` | Best for | Extra variable needed |
-|-----------|----------|-----------------------|
-| *(blank)* | VPS, Pterodactyl, local | — |
-| `sqlite` | VPS, single-file backup | `SQLITE_PATH` (optional) |
-| `postgres` | Railway, Neon, Heroku Postgres | `DATABASE_URL` |
-| `mysql` | Railway MySQL, PlanetScale | `DATABASE_URL` |
-| `mongodb` | MongoDB Atlas (free 512MB) | `MONGO_URI` |
-| `supabase` | Supabase (free 500MB, no card) | `SUPABASE_DB_URL` |
-| `redis` | Render, Railway Redis, Upstash | `REDIS_URL` |
+> ⚠️ Only install plugins from people you trust. A plugin runs on your bot with full access.
 
 ---
 
-## 🔌 Plugin Development Guide
+### Creating your own plugin (for sharing via Gist)
 
-Plugins are the heart of Queen Riam. Every command is a plugin — drop a `.js` file into the `plugins/` folder and it auto-loads instantly. No core file edits, no restarts required.
-
-### How it works
-
-The bot exposes a global `bot()` function. Call it with a config object and a handler function:
+Every plugin is a plain `.js` file. The only requirement is that it calls `bot()` at the bottom with a config and a handler. Here is the minimum structure — copy this, fill in the blanks, paste it into a new **public** Gist, and share the Raw link.
 
 ```js
 const { bot } = require('../lib/pluginLoader');
 
 bot({
-  command: 'hello',
-  description: 'Say hello',
-  category: 'fun',
-}, async (sock, chatId, message, args, query, ctx) => {
-  await sock.sendMessage(chatId, { text: 'Hello! 👋' }, { quoted: message });
-});
-```
-
-That's it. Save the file and the bot picks it up automatically.
-
----
-
-### Handler Arguments
-
-Every handler receives exactly these 6 arguments:
-
-| Argument | Type | Description |
-|----------|------|-------------|
-| `sock` | Object | The Baileys socket — use this to send messages, reactions, etc. |
-| `chatId` | String | The chat JID — where the message came from (group or private) |
-| `message` | Object | The full raw Baileys message object |
-| `args` | Array | Words after the command. `.weather Accra` → `args = ['Accra']` |
-| `query` | String | Everything after the command joined as a string. `.weather Accra Ghana` → `'Accra Ghana'` |
-| `ctx` | Object | Context helpers — see table below |
-
-### The `ctx` Object
-
-`ctx` gives you everything you need without digging into raw Baileys structures:
-
-| Property | Type | Description |
-|----------|------|-------------|
-| `ctx.c` | String | The matched command name (without prefix). Use this, not `ctx.command` |
-| `ctx.senderId` | String | Sender's WhatsApp JID (`2348012345678@s.whatsapp.net`) |
-| `ctx.senderNumber` | String | Sender's number as a plain string |
-| `ctx.isGroup` | Boolean | `true` if the message came from a group |
-| `ctx.isOwner` | Boolean | `true` if the sender is the bot owner |
-| `ctx.isSudo` | Boolean | `true` if the sender is a sudo/admin user |
-| `ctx.isAdmin` | Boolean | `true` if the sender is a group admin |
-| `ctx.isBotAdmin` | Boolean | `true` if the bot itself is a group admin |
-| `ctx.pushName` | String | Sender's display name |
-| `ctx.quoted` | Object\|null | The message being replied to (if any) |
-| `ctx.quotedText` | String\|null | Text content of the quoted message |
-| `ctx.mime` | String\|null | MIME type of the quoted/attached media |
-
----
-
-### Plugin Config Options
-
-| Option | Type | Required | Description |
-|--------|------|----------|-------------|
-| `command` | String \| Array | ✅ | Command name(s) without the prefix |
-| `description` | String | ✅ | Shows in `.help` menus |
-| `category` | String | — | Which menu section it appears under (default: `general`) |
-| `usage` | String | — | Usage hint shown in help. E.g. `'<city>'` |
-| `hidden` | Boolean | — | `true` = registered but invisible in help menus |
-| `ownerOnly` | Boolean | — | Restrict to owner only (enforced in core) |
-| `groupOnly` | Boolean | — | Only works in groups |
-| `privateOnly` | Boolean | — | Only works in private/DM chats |
-| `on` | String | — | Register an event listener instead of a command (see Events) |
-
----
-
-### Available Categories
-
-| Category | Emoji | Use for |
-|----------|-------|---------|
-| `ai` | 🤖 | AI / LLM commands |
-| `download` | 📥 | Media downloaders |
-| `fun` | 🎯 | Fun, jokes, memes, games |
-| `games` | 🎮 | Interactive games |
-| `general` | 🌐 | Miscellaneous / uncategorised |
-| `group` | 👥 | Group management commands |
-| `nsfw` | 🔞 | 18+ content |
-| `owner` | 🔒 | Owner/admin only |
-| `photo` | 🎨 | Image manipulation |
-| `religion` | ✝️ | Bible, Quran, prayer commands |
-| `text` | 🔤 | Text art, fonts, ASCII |
-| `tools` | 💻 | Utilities, lookups, converters |
-
----
-
-### Examples
-
-#### ✅ Simple text reply
-
-```js
-const { bot } = require('../lib/pluginLoader');
-
-bot({
-  command: 'ping',
-  description: 'Check if the bot is alive',
-  category: 'general',
+  command: 'hello',           // the command users type (without the prefix)
+  description: 'Say hello',  // shows up in .help
+  category: 'fun',           // which menu section: fun, tools, general, ai, etc.
 }, async (sock, chatId, message) => {
-  await sock.sendMessage(chatId, { text: '🏓 Pong!' }, { quoted: message });
+
+  await sock.sendMessage(chatId, { text: 'Hello! 👋' }, { quoted: message });
+
 });
 ```
 
----
+When installed, users trigger it with `.hello` (or whatever prefix the owner set).
 
-#### ✅ Multiple command aliases
+**Multiple commands / aliases** — pass an array so the same plugin responds to more than one trigger:
 
 ```js
 bot({
   command: ['hi', 'hey', 'hello'],
   description: 'Greet the bot',
   category: 'fun',
-}, async (sock, chatId, message, args, query, ctx) => {
-  await sock.sendMessage(chatId, {
-    text: `Hey *${ctx.pushName}*! 👋`,
-  }, { quoted: message });
+}, async (sock, chatId, message) => {
+  await sock.sendMessage(chatId, { text: 'Hey there! 👋' }, { quoted: message });
 });
 ```
 
----
-
-#### ✅ Using args and query
+**Reading what the user typed after the command** — use `query` (the full text) or `args` (each word as an array):
 
 ```js
 bot({
   command: 'say',
   description: 'Make the bot repeat something',
   category: 'fun',
-  usage: '<text>',
 }, async (sock, chatId, message, args, query) => {
   if (!query) {
-    return sock.sendMessage(chatId, { text: '❌ Give me something to say!' }, { quoted: message });
+    return sock.sendMessage(chatId, { text: '❌ Example: .say hello world' }, { quoted: message });
   }
   await sock.sendMessage(chatId, { text: query }, { quoted: message });
 });
 ```
 
----
+**Available categories:** `ai` · `download` · `fun` · `games` · `general` · `group` · `nsfw` · `owner` · `photo` · `religion` · `text` · `tools`
 
-#### ✅ Owner-only command
-
-```js
-bot({
-  command: 'broadcast',
-  description: 'Send a message to all groups',
-  category: 'owner',
-  ownerOnly: true,
-}, async (sock, chatId, message, args, query, ctx) => {
-  if (!ctx.isOwner) {
-    return sock.sendMessage(chatId, { text: '🔒 Owner only.' }, { quoted: message });
-  }
-  // your broadcast logic here
-  await sock.sendMessage(chatId, { text: '✅ Broadcast sent.' }, { quoted: message });
-});
-```
+**How to share via GitHub Gist:**
+1. Go to [gist.github.com](https://gist.github.com)
+2. Name your file `myplugin.js` (must end in `.js`)
+3. Paste your plugin code
+4. Click **Create public gist**
+5. Click the **Raw** button — copy that URL
+6. Send `.install <that url>` to your bot
 
 ---
 
-#### ✅ Sending an image from a URL
+### Updating the bot
 
-```js
-const axios = require('axios');
-const { bot } = require('../lib/pluginLoader');
-
-bot({
-  command: 'dog',
-  description: 'Get a random dog picture',
-  category: 'fun',
-}, async (sock, chatId, message) => {
-  const { data } = await axios.get('https://dog.ceo/api/breeds/image/random');
-  const imageUrl = data.message;
-
-  // Download as buffer
-  const response = await axios.get(imageUrl, { responseType: 'arraybuffer' });
-  const buffer = Buffer.from(response.data);
-
-  await sock.sendMessage(chatId, {
-    image: buffer,
-    caption: '🐶 Woof!',
-  }, { quoted: message });
-});
-```
+Send `.update` to check for and apply the latest version from GitHub. Your session, data, and installed plugins are kept safe — only core files are updated.
 
 ---
 
-#### ✅ Sending a reaction
+## Requirements
 
-```js
-// React with an emoji on the sender's message
-await sock.sendMessage(chatId, {
-  react: { text: '✅', key: message.key },
-});
-```
-
----
-
-#### ✅ Group-only command with admin check
-
-```js
-bot({
-  command: 'mute',
-  description: 'Mute the group (bot must be admin)',
-  category: 'group',
-  groupOnly: true,
-}, async (sock, chatId, message, args, query, ctx) => {
-  if (!ctx.isBotAdmin) {
-    return sock.sendMessage(chatId, { text: '❌ Make me an admin first.' }, { quoted: message });
-  }
-  await sock.groupSettingUpdate(chatId, 'announcement'); // lock group
-  await sock.sendMessage(chatId, { text: '🔇 Group muted.' }, { quoted: message });
-});
-```
-
----
-
-#### ✅ Reading a quoted message
-
-```js
-bot({
-  command: 'quote',
-  description: 'Quote the replied message',
-  category: 'fun',
-}, async (sock, chatId, message, args, query, ctx) => {
-  if (!ctx.quoted) {
-    return sock.sendMessage(chatId, { text: '↩️ Reply to a message first.' }, { quoted: message });
-  }
-  await sock.sendMessage(chatId, {
-    text: `*Quoted:*\n${ctx.quotedText}`,
-  }, { quoted: message });
-});
-```
-
----
-
-#### ✅ Fetching from an API with error handling
-
-```js
-const axios = require('axios');
-const { bot } = require('../lib/pluginLoader');
-const getFakeVcard = require('../lib/fakeVcard');
-
-bot({
-  command: 'weather',
-  description: 'Get current weather for a city',
-  category: 'tools',
-  usage: '<city>',
-}, async (sock, chatId, message, args, query) => {
-  if (!query) {
-    return sock.sendMessage(chatId, { text: '🌍 Usage: .weather Accra' }, { quoted: message });
-  }
-
-  try {
-    const { data } = await axios.get(`https://wttr.in/${encodeURIComponent(query)}?format=3`);
-    await sock.sendMessage(chatId, { text: `🌤️ ${data}` }, { quoted: message });
-  } catch (err) {
-    console.error('[weather] Error:', err.message);
-    await sock.sendMessage(chatId,
-      { text: '❌ Could not fetch weather. Try again later.' },
-      { quoted: getFakeVcard() }
-    );
-  }
-});
-```
-
----
-
-#### ✅ Event listener (no command trigger)
-
-Use `on` instead of `command` to listen for raw events:
-
-```js
-const { bot } = require('../lib/pluginLoader');
-
-bot({
-  on: 'message',          // fires on every incoming message
-  description: 'Logger',
-  hidden: true,
-}, async (sock, chatId, message, args, query, ctx) => {
-  if (ctx.isGroup) {
-    console.log(`[${chatId}] ${ctx.pushName}: ${query}`);
-  }
-});
-```
-
-Available event types: `message`, `group-participants`, `call`, `status`.
-
----
-
-### Tips & Best Practices
-
-- **One file, one feature.** Keep each plugin focused — it's easier to debug and share.
-- **Always handle errors.** Wrap API calls in `try/catch` and send a friendly message instead of crashing.
-- **Use `ctx.c`** (not `ctx.command`) to get the matched command name inside a multi-alias plugin.
-- **Never hardcode numbers or keys.** Use `.env` variables for anything sensitive.
-- **Use `getFakeVcard()`** as the `quoted` message when you need to quote something without referring to a real message (looks cleaner than quoting the bot itself).
-- **Cooldowns.** For API-heavy commands use a `Map` keyed on `ctx.senderId` to throttle per-user requests.
-- **`axios` and `node-fetch` are both available.** Prefer `axios` for JSON APIs — it throws on non-2xx responses automatically when using `.get()`.
-- **Media downloads.** For large files, stream directly into a buffer with `axios({ responseType: 'arraybuffer' })` and pass the `Buffer` to `sendMessage`.
-- **Hidden commands.** Set `hidden: true` to register a command that works but doesn't appear in `.help` — useful for aliases, debug commands, or internal triggers.
-
----
-
-### Plugin File Template
-
-Copy this as a starting point for any new plugin:
-
-```js
-// plugins/myplugin.js
-
-const { bot } = require('../lib/pluginLoader');
-const getFakeVcard = require('../lib/fakeVcard');
-// const axios = require('axios'); // uncomment if you need HTTP requests
-
-bot({
-  command: ['mycommand'],        // add aliases: ['mycommand', 'mc']
-  description: 'What it does',
-  category: 'general',          // see category table above
-  usage: '<optional arg>',      // shown in .help mycommand
-}, async (sock, chatId, message, args, query, ctx) => {
-  try {
-
-    // Guard: only run in groups
-    // if (!ctx.isGroup) return sock.sendMessage(chatId, { text: '❌ Groups only.' }, { quoted: message });
-
-    // Guard: require an argument
-    // if (!query) return sock.sendMessage(chatId, { text: `Usage: ${ctx.c} <arg>` }, { quoted: message });
-
-    // React to acknowledge
-    await sock.sendMessage(chatId, { react: { text: '⏳', key: message.key } });
-
-    // --- Your logic here ---
-    const reply = 'Hello from my plugin!';
-
-    // Send reply
-    await sock.sendMessage(chatId, { text: reply }, { quoted: message });
-
-  } catch (err) {
-    console.error(`[${ctx.c}] Error:`, err.message);
-    await sock.sendMessage(chatId,
-      { text: '❌ Something went wrong. Please try again.' },
-      { quoted: getFakeVcard() }
-    );
-  }
-});
-```
-
----
-
-## Docker
-
-```bash
-# Build
-docker build -t queen-riam .
-
-# Run (pass SESSION_ID to skip pairing)
-docker run -d \
-  --name queen-riam \
-  --env-file .env \
-  -e SESSION_ID=your_session_id \
-  queen-riam
-```
+| | Minimum |
+|--|---------|
+| Node.js | 20.x |
+| npm | 10.x |
+| FFmpeg | Required for media commands |
+| WhatsApp | Active mobile account |
 
 ---
 
 ## Credits
 
-| Contributor | Link |
-|-------------|------|
+| | |
+|--|--|
 | **DevKango** | [github.com/Dev-Kango](https://github.com/Dev-Kango) |
 | **OfficialKango** | [github.com/OfficialKango](https://github.com/OfficialKango) |
 | **Baileys** | [github.com/WhiskeySockets](https://github.com/WhiskeySockets) |
@@ -545,7 +245,7 @@ docker run -d \
 
 ## Notice
 
-> **Educational use only.** Do not use this bot for spam, harassment, or any illegal activities. WhatsApp may ban accounts that violate their Terms of Service.
+> **Educational use only.** Do not use this bot for spam, harassment, or any illegal activity. WhatsApp may ban accounts that violate their Terms of Service.
 
 ---
 
