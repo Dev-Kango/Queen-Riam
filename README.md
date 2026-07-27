@@ -1,7 +1,7 @@
 <h1 align="center">👑 QUEEN RIAM</h1>
 
 <p align="center">
-  <img src="https://i.imgur.com/6H0FXSa.jpeg" alt="Queen Riam" width="300" style="border-radius: 12px;" />
+  <img src="https://i.postimg.cc/4xrFDjGC/Screenshot-20260728-032831-Photos.png" alt="Queen Riam" width="300" style="border-radius: 12px;" />
 </p>
 
 <p align="center">
