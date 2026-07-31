@@ -1,0 +1,106 @@
+// ==========================================
+// QUEEN RIAM REPOSITORY - VERSION 2.0.0
+// SPEED & SPAM ATTACK CORE MODULE
+// ==========================================
+
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+async function handleRiamCommands(client, message, cmd, args) {
+    const chat = message.chatId;
+    const targetText = args.join(" ") || "🔥 QUEEN RIAM V2.0.0 RUNNING 🔥";
+    
+    switch (cmd) {
+        
+        // 🛑 1. SPAM DELAY COMMANDS
+        case 'spam10':
+            for (let i = 0; i < 100; i++) {
+                await client.sendMessage(chat, targetText);
+                await sleep(10); // 10ms Delay
+            }
+            break;
+            
+        case 'spam50':
+            for (let i = 0; i < 100; i++) {
+                await client.sendMessage(chat, targetText);
+                await sleep(50); // 50ms Delay
+            }
+            break;
+            
+        case 'spam100':
+            for (let i = 0; i < 100; i++) {
+                await client.sendMessage(chat, targetText);
+                await sleep(100); // 100ms Delay
+            }
+            break;
+
+        // 🔄 2. SLIDE REPLY COMMANDS
+        case 'sreply10':
+            if (!message.quotedMsg) return client.sendMessage(chat, "Tag a message first!");
+            for (let i = 0; i < 100; i++) {
+                await client.reply(chat, targetText, message.quotedMsg.id);
+                await sleep(10);
+            }
+            break;
+
+        case 'sreply50':
+            if (!message.quotedMsg) return client.sendMessage(chat, "Tag a message first!");
+            for (let i = 0; i < 100; i++) {
+                await client.reply(chat, targetText, message.quotedMsg.id);
+                await sleep(50);
+            }
+            break;
+
+        case 'sreply100':
+            if (!message.quotedMsg) return client.sendMessage(chat, "Tag a message first!");
+            for (let i = 0; i < 100; i++) {
+                await client.reply(chat, targetText, message.quotedMsg.id);
+                await sleep(100);
+            }
+            break;
+
+        // ⚔️ 3. NC (NAME-CALL / NO-CLICK) COMMANDS
+        case 'nc10':
+            for (let i = 0; i < 150; i++) {
+                await client.sendText(chat, `☠️ ${targetText} ☠️`);
+                await sleep(10);
+            }
+            break;
+
+        case 'nc50':
+            for (let i = 0; i < 150; i++) {
+                await client.sendText(chat, `☠️ ${targetText} ☠️`);
+                await sleep(50);
+            }
+            break;
+
+        case 'nc100':
+            for (let i = 0; i < 150; i++) {
+                await client.sendText(chat, `☠️ ${targetText} ☠️`);
+                await sleep(100);
+            }
+            break;
+
+        // 🔥 ULTRA & SUPER FAST MODES
+        case 'nc1': // Ultra Fast (Zero Throttle)
+            console.log("⚡ Nc1 Ultra Fast Mode Activated!");
+            // Bina kisi delay (0ms) ke parallel requests trigger karta hai
+            Promise.all(Array.from({ length: 200 }).map(() => 
+                client.sendMessage(chat, `⚡ [ULTRA] ${targetText}`)
+            )).catch(err => console.log("Bypass Mode Error:", err));
+            break;
+
+        case 'nc2': // Super Fast (Optimized Loop)
+            console.log("🚀 Nc2 Super Fast Mode Activated!");
+            // 2ms to 5ms ke hyper delay par crash-proof speed
+            for (let i = 0; i < 250; i++) {
+                client.sendMessage(chat, `🚀 [SUPER] ${targetText}`);
+                await sleep(3); 
+            }
+            break;
+
+        default:
+            break;
+    }
+}
+
+module.exports = { handleRiamCommands };
