@@ -1,0 +1,252 @@
+[
+  {
+    "id": 1,
+    "text": "Faut-il limiter les réseaux sociaux pour réduire la désinformation, même si cela restreint la liberté d'expression ?",
+    "choices": ["Oui, limiter pour protéger l'information fiable", "Non, liberté d'expression prioritaire"]
+  },
+  {
+    "id": 2,
+    "text": "Est-il acceptable de sacrifier la vie privée pour améliorer la sécurité nationale ?",
+    "choices": ["Sécurité d'abord", "Vie privée d'abord"]
+  },
+  {
+    "id": 3,
+    "text": "Préférerais-tu vivre dans un pays avec beaucoup d'espace mais peu d'opportunités économiques, ou dans un pays surpeuplé avec de meilleures opportunités ?",
+    "choices": ["Espace et calme", "Opportunités et densité"]
+  },
+  {
+    "id": 4,
+    "text": "Entre la paix fragile et la guerre directe pour libérer un peuple opprimé : quel est le moindre mal ?",
+    "choices": ["Paix fragile", "Intervention militaire"]
+  },
+  {
+    "id": 5,
+    "text": "Qui est plus influent dans son sport : Lionel Messi ou Cristiano Ronaldo ?",
+    "choices": ["Lionel Messi", "Cristiano Ronaldo"]
+  },
+  {
+    "id": 6,
+    "text": "Qui est le meilleur attaquant historique au football selon toi ?",
+    "choices": ["Pelé / Maradona", "Messi / Ronaldo"]
+  },
+  {
+    "id": 7,
+    "text": "Quel style de vie est plus épanouissant : nomade (beaucoup de voyages) ou sédentaire (stabilité locale) ?",
+    "choices": ["Nomade", "Sédentaire"]
+  },
+  {
+    "id": 8,
+    "text": "Afin d'améliorer l'environnement, préfères-tu : taxer fortement les produits polluants ou subventionner les alternatives vertes ?",
+    "choices": ["Taxer pollueurs", "Subventionner alternatives"]
+  },
+  {
+    "id": 9,
+    "text": "Entre LeBron James et Michael Jordan : qui a eu l'impact le plus énorme sur le basket moderne ?",
+    "choices": ["LeBron James", "Michael Jordan"]
+  },
+  {
+    "id": 10,
+    "text": "Dans une fiction, qui gagnerait dans un duel : Goku (Dragon Ball) ou Saitama (One Punch Man) ?",
+    "choices": ["Goku", "Saitama"]
+  },
+  {
+    "id": 11,
+    "text": "Est-il moralement acceptable de mentir pour protéger quelqu'un d'un grand mal ?",
+    "choices": ["Oui, pour protéger", "Non, jamais mentir"]
+  },
+  {
+    "id": 12,
+    "text": "La sélection génétique pour éviter des maladies graves devrait-elle être autorisée ?",
+    "choices": ["Oui, prévenir la souffrance", "Non, dangers éthiques"]
+  },
+  {
+    "id": 13,
+    "text": "Pour un grand match, qui est le meilleur : Rafael Nadal ou Novak Djokovic ?",
+    "choices": ["Rafael Nadal", "Novak Djokovic"]
+  },
+  {
+    "id": 14,
+    "text": "Faut-il privilégier le patriotisme ou le cosmopolitisme dans l'éducation civique ?",
+    "choices": ["Patriotisme", "Cosmopolitisme"]
+  },
+  {
+    "id": 15,
+    "text": "Pour la justice sociale, est-il plus efficace d'imposer les riches ou d'investir massivement dans l'éducation ?",
+    "choices": ["Imposer les riches", "Investir dans l'éducation"]
+  },
+  {
+    "id": 16,
+    "text": "Quel est le choix le plus difficile : sacrifier une carrière brillante pour la famille, ou privilégier la carrière au risque de perdre des liens familiaux ?",
+    "choices": ["Famille d'abord", "Carrière d'abord"]
+  },
+  {
+    "id": 17,
+    "text": "Entre Naruto et Luffy : lequel symbolise le mieux la persévérance face aux obstacles ?",
+    "choices": ["Naruto", "Luffy"]
+  },
+  {
+    "id": 18,
+    "text": "Doit-on interdire certains contenus violents pour protéger les jeunes, même si cela limite l'art ?",
+    "choices": ["Interdire pour protéger", "Liberté artistique"]
+  },
+  {
+    "id": 19,
+    "text": "Pour réduire la pauvreté, vaut-il mieux un revenu de base universel ou un filet de sécurité ciblé ?",
+    "choices": ["Revenu de base", "Aides ciblées"]
+  },
+  {
+    "id": 20,
+    "text": "Si tu devais choisir : transparence complète d'un gouvernement ou secret sur certaines opérations pour la sécurité ?",
+    "choices": ["Transparence", "Secret pour sécurité"]
+  },
+  {
+    "id": 21,
+    "text": "Qui est le plus souvent comparé en football et mérite le débat : Neymar ou Kylian Mbappé ?",
+    "choices": ["Neymar", "Kylian Mbappé"]
+  },
+  {
+    "id": 22,
+    "text": "Dans une discussion culturelle, vaut-il mieux défendre son patrimoine local ou accepter naturellement les influences étrangères ?",
+    "choices": ["Protéger le patrimoine", "Accepter les influences"]
+  },
+  {
+    "id": 23,
+    "text": "Être célèbre mais avoir peu de vie privée ou être anonyme avec une vie privée riche : quel choix ?",
+    "choices": ["Célèbre", "Anonyme"]
+  },
+  {
+    "id": 24,
+    "text": "Dans un débat, qui gagnerait : Light Yagami (Death Note) ou Lelouch (Code Geass) ?",
+    "choices": ["Light Yagami", "Lelouch"]
+  },
+  {
+    "id": 25,
+    "text": "Faut-il privilégier l'énergie nucléaire pour décroître les émissions, malgré les risques, ou miser uniquement sur renouvelables ?",
+    "choices": ["Inclure nucléaire", "Renouvelables seules"]
+  },
+  {
+    "id": 26,
+    "text": "Pour la réussite d'un pays, est-ce la culture du travail ou l'innovation qui compte le plus ?",
+    "choices": ["Culture du travail", "Innovation"]
+  },
+  {
+    "id": 27,
+    "text": "Entre Serena Williams et Roger Federer : qui a la carrière la plus marquante (impact global) ?",
+    "choices": ["Serena Williams", "Roger Federer"]
+  },
+  {
+    "id": 28,
+    "text": "Est-ce qu'on doit protéger la biodiversité même si cela ralentit le développement économique local ?",
+    "choices": ["Protéger biodiversité", "Priorité au développement"]
+  },
+  {
+    "id": 29,
+    "text": "Préférerais-tu : être très riche mais stressé, ou modérément à l'aise et heureux ?",
+    "choices": ["Très riche, stressé", "Modérément à l'aise, heureux"]
+  },
+  {
+    "id": 30,
+    "text": "Dans un duel fictif, qui l'emporterait : Ichigo (Bleach) ou Edward (Fullmetal Alchemist) ?",
+    "choices": ["Ichigo", "Edward"]
+  },
+  {
+    "id": 31,
+    "text": "Pour la santé publique, faut-il rendre certains vaccins obligatoires ou les laisser libres sur la base du choix individuel ?",
+    "choices": ["Obligatoire", "Choix individuel"]
+  },
+  {
+    "id": 32,
+    "text": "Entre gestion locale et centralisation, quelle approche est meilleure pour répondre aux crises ?",
+    "choices": ["Gestion locale", "Centralisation"]
+  },
+  {
+    "id": 33,
+    "text": "Qui est le meilleur joueur de basket entre Magic Johnson et Larry Bird si on compare l'impact sur leur époque ?",
+    "choices": ["Magic Johnson", "Larry Bird"]
+  },
+  {
+    "id": 34,
+    "text": "Devrait-on réduire la semaine de travail pour améliorer le bien-être, même si la productivité horaire varie ?",
+    "choices": ["Réduire semaine", "Garder actuelle"]
+  },
+  {
+    "id": 35,
+    "text": "Pour protéger une communauté, préfère-t-on une petite loi stricte ou une grande règle flexible ?",
+    "choices": ["Loi stricte", "Règle flexible"]
+  },
+  {
+    "id": 36,
+    "text": "Entre deux héros d'anime, qui est plus charismatique : Spike Spiegel (Cowboy Bebop) ou Levi (Attack on Titan) ?",
+    "choices": ["Spike Spiegel", "Levi"]
+  },
+  {
+    "id": 37,
+    "text": "Doit-on favoriser le tourisme de masse pour l'économie locale ou le limiter pour préserver les sites ?",
+    "choices": ["Favoriser tourisme", "Limiter tourisme"]
+  },
+  {
+    "id": 38,
+    "text": "Pour l'éducation, mieux vaut l'apprentissage pratique (atelier) ou la théorie approfondie ?",
+    "choices": ["Pratique", "Théorie"]
+  },
+  {
+    "id": 39,
+    "text": "Dans les comparaisons foot, qui est le plus complet : Zinedine Zidane ou Ronaldinho ?",
+    "choices": ["Zidane", "Ronaldinho"]
+  },
+  {
+    "id": 40,
+    "text": "Faut-il accepter des compromis moraux pour atteindre un grand objectif humanitaire ?",
+    "choices": ["Oui, si but noble", "Jamais de compromission"]
+  },
+  {
+    "id": 41,
+    "text": "Pour préserver la paix, vaut-il mieux céder sur certains points diplomatiques ou tenir une position ferme ?",
+    "choices": ["Céder pour paix", "Tenir position"]
+  },
+  {
+    "id": 42,
+    "text": "Ton mode de vie préféré : vivre en ville dynamique ou à la campagne tranquille ?",
+    "choices": ["Ville dynamique", "Campagne tranquille"]
+  },
+  {
+    "id": 43,
+    "text": "Entre deux légendes du tennis, who is greater : Björn Borg or Pete Sampras ?",
+    "choices": ["Björn Borg", "Pete Sampras"]
+  },
+  {
+    "id": 44,
+    "text": "Accepter l'immigration massive pour stimuler l'économie à court terme, même si cela crée des tensions sociales ?",
+    "choices": ["Accepter pour économie", "Limiter pour cohésion"]
+  },
+  {
+    "id": 45,
+    "text": "En culture générale : est-ce mieux d'être un expert profond dans un domaine ou un généraliste avec connaissances larges ?",
+    "choices": ["Expert profond", "Généraliste"]
+  },
+  {
+    "id": 46,
+    "text": "Comparer deux personnages : Light (Death Note) et Vegeta (Dragon Ball) — qui est le plus complexe moralement ?",
+    "choices": ["Light", "Vegeta"]
+  },
+  {
+    "id": 47,
+    "text": "Pour lutter contre le dopage dans le sport, est-ce que la surveillance stricte prime sur la présomption d'innocence ?",
+    "choices": ["Surveillance stricte", "Presomption d'innocence"]
+  },
+  {
+    "id": 48,
+    "text": "Préférerais-tu : vivre meilleure santé mais moins de confort technologique, ou confort technologique mais santé moindre ?",
+    "choices": ["Santé avant confort", "Confort avant santé"]
+  },
+  {
+    "id": 49,
+    "text": "Qui est le joueur le plus technique en football parmi les suivants : Andrés Iniesta ou Xavi ?",
+    "choices": ["Andrés Iniesta", "Xavi"]
+  },
+  {
+    "id": 50,
+    "text": "Pour une société juste, vaut-il mieux la méritocratie stricte ou garantir l'égalité des chances par des aides ?",
+    "choices": ["Méritocratie", "Garantir égalité"]
+  }
+]
