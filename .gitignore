@@ -1,0 +1,15 @@
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+
+# WhatsApp and local database state
+session/
+data/session.db
+data/session.db-*
+data/*.sqlite
+data/*.sqlite-*
+
+# Runtime backups and generated external plugins
+_backups/
+eplugins/
