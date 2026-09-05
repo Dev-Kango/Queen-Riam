@@ -401,10 +401,10 @@ module.exports = {
   hangman_won: 'Congratulations! You guessed the word: {word}',
   hangman_wrong: 'Wrong guess! You have {tries} tries left.',
   hangman_over: 'Game over! The word was: {word}',
-  antidelete_owner_only: '*Only the bot owner can use this command.*',
-  antidelete_invalid: '*Invalid command. Use .antidelete to see usage.*',
-  antidelete_on: '*Antidelete enabled*',
-  antidelete_off: '*Antidelete disabled*',
+  antidelete_owner_only: '🔐 *Access Denied* — This command is restricted to the bot owner only.',
+  antidelete_invalid: '❌ *Invalid option.* Use `.antidelete on` or `.antidelete off`.',
+  antidelete_on: '🛡️ *Anti-Delete Activated*\n\nI will now monitor all messages. If anyone deletes a message, I will forward the original content directly to you.',
+  antidelete_off: '🔕 *Anti-Delete Deactivated*\n\nMessage monitoring has been turned off.',
   // ── Help / Commands (i18n) ──────────────────────────────────────────────
   help_tap_category: "_Tap a category below to view its commands_",
   help_back_btn: "🔙 Back to Menu",
@@ -449,12 +449,21 @@ Current status: {status}`,
   autoreply_set_success: `✅ Auto-reply message updated.
 
 *Message:* _{msg}_`,
-  antidelete_status: `🗑️ *ANTIDELETE SETUP*
+  antidelete_status: `━━━━━━━━━━━━━━━━━━━━
+🛡️ *ANTI-DELETE SETTINGS*
+━━━━━━━━━━━━━━━━━━━━
 
-Current Status: {status}`,
-  antidelete_media_caption: `🗑️ *Deleted {type}*
-From: @{sender}`,
-  antidelete_media_error: `⚠️ Error sending deleted media.`,
+📌 *Current Status:* {status}
+
+*Commands:*
+• *.antidelete on* — Enable protection
+• *.antidelete off* — Disable protection
+
+💡 When enabled, deleted messages (text, images, videos & stickers) are forwarded to the bot owner's DM.
+━━━━━━━━━━━━━━━━━━━━`,
+  antidelete_media_caption: `🗑️ *Deleted {type} recovered*
+👤 Originally from: @{sender}`,
+  antidelete_media_error: `⚠️ *Media Recovery Failed*\n\nThe deleted media could not be retrieved. It may have expired before it could be saved.`,
   chatbot_on: `✅ AI Chatbot is now *ON*
 
 🤖 Mode: *{mode}*
@@ -532,4 +541,22 @@ Start one with \`.trivia\``,
   hymn_no_results: '❌ No hymns found for that keyword. Try a different one.',
   screenshot_msg_usage: '📸 *Reply to any message with .screenshot to capture it.*',
   screenshot_msg_error: '❌ Failed to take screenshot. Please try again.',
+
+  antiedit_owner_only: '🔐 *Access Denied* — This command is restricted to the bot owner only.',
+  antiedit_on_private: '🕵️ *Anti-Edit Activated (Private)*\n\nWhen someone edits a message, I will send the original content to your DM silently.',
+  antiedit_on_chat: '📣 *Anti-Edit Activated (In-Chat)*\n\nWhen someone edits a message, I will expose the original content directly in the chat.',
+  antiedit_off: '🔕 *Anti-Edit Deactivated*\n\nMessage edit monitoring has been turned off.',
+  antiedit_status: `━━━━━━━━━━━━━━━━━━━━
+✏️ *ANTI-EDIT SETTINGS*
+━━━━━━━━━━━━━━━━━━━━
+
+📌 *Current Status:* {status}
+
+*Commands:*
+• *.antiedit private* — Alert you in DM (silent)
+• *.antiedit chat* — Expose edit in the group
+• *.antiedit off* — Disable
+
+💡 Catches anyone who edits a message to hide what they said.
+━━━━━━━━━━━━━━━━━━━━`,
 };
