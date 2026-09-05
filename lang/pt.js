@@ -505,4 +505,20 @@ Comece com \`.trivia\``,
   hymn_no_results: '❌ Nenhum hino encontrado. Tente outra palavra-chave.',
   screenshot_msg_usage: '📸 *Responda a qualquer mensagem com .screenshot para capturá-la.*',
   screenshot_msg_error: '❌ Falha ao capturar. Tente novamente.',
+
+  antiedit_owner_only: '🔐 *Acesso negado* — Este comando é restrito ao dono do bot.',
+  antiedit_on_private: '🕵️ *Anti-Edição Ativado (Privado)*\n\nQuando alguém editar uma mensagem, enviarei o original para o seu DM.',
+  antiedit_on_chat: '📣 *Anti-Edição Ativado (No Chat)*\n\nQuando alguém editar uma mensagem, irei expô-la no chat.',
+  antiedit_off: '🔕 *Anti-Edição Desativado.*',
+  antiedit_status: `━━━━━━━━━━━━━━━━━━━━
+✏️ *CONFIGURAÇÕES ANTI-EDIÇÃO*
+━━━━━━━━━━━━━━━━━━━━
+
+📌 *Status atual:* {status}
+
+*Comandos:*
+• *.antiedit private* — Alertar no DM
+• *.antiedit chat* — Expor no grupo
+• *.antiedit off* — Desativar
+━━━━━━━━━━━━━━━━━━━━`,
 };
