@@ -532,4 +532,20 @@ Commence avec \`.trivia\``,
   hymn_no_results: '❌ Aucun cantique trouvé pour ce mot-clé. Essayez-en un autre.',
   screenshot_msg_usage: '📸 *Répondez à un message avec .screenshot pour le capturer.*',
   screenshot_msg_error: '❌ Échec de la capture. Veuillez réessayer.',
+
+  antiedit_owner_only: '🔐 *Accès refusé* — Cette commande est réservée au propriétaire du bot.',
+  antiedit_on_private: '🕵️ *Anti-Modification Activé (Privé)*\n\nLorsque quelqu\'un modifie un message, je t\'enverrai l\'original en DM.',
+  antiedit_on_chat: '📣 *Anti-Modification Activé (Chat)*\n\nLorsque quelqu\'un modifie un message, je l\'exposerai dans le chat.',
+  antiedit_off: '🔕 *Anti-Modification Désactivé.*',
+  antiedit_status: `━━━━━━━━━━━━━━━━━━━━
+✏️ *PARAMÈTRES ANTI-MODIFICATION*
+━━━━━━━━━━━━━━━━━━━━
+
+📌 *Statut actuel:* {status}
+
+*Commandes:*
+• *.antiedit private* — Alerter en DM
+• *.antiedit chat* — Exposer dans le groupe
+• *.antiedit off* — Désactiver
+━━━━━━━━━━━━━━━━━━━━`,
 };
