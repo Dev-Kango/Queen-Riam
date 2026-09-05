@@ -3,9 +3,12 @@
   "AUTOTYPE": "false",
   "AUTORECORD": "false",
   "AUTORECORDTYPE": "false",
-  "AUTO_STATUS_REACT": "false",
+  "AUTO_STATUS_REACT": "true",
   "AUTO_STATUS_REPLY": "false",
   "AUTO_STATUS_MSG": "Viewed By Queen Riam",
-  "ANTICALL": "decline",
-  "BUTTONMODE": "on"
+  "ANTICALL": "off",
+  "BUTTONMODE": "off",
+  "LANGUAGE": "en",
+  "PREFIX": ".",
+  "ALWAYSONLINE": "true"
 }
