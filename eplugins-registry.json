@@ -1,0 +1,8 @@
+{
+  "plugins": [
+    {
+      "name": "eplugin-test",
+      "url": "https://gist.githubusercontent.com/Dev-Kango/1e245ea710b7e5033591427f8518729c/raw/eplugin-test.js"
+    }
+  ]
+}
