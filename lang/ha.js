@@ -505,4 +505,20 @@ Fara da \`.trivia\``,
   hymn_no_results: '❌ Ba a sami waƙoƙi don wannan kalmar ba. Gwada wata kalmar.',
   screenshot_msg_usage: '📸 *Amsa duk wata saƙo da .screenshot don ɗaukar hotonsa.*',
   screenshot_msg_error: '❌ Ɗaukar screenshot ya kasa. Don Allah sake gwadawa.',
+
+  antiedit_owner_only: '🔐 *An hana shiga* — Wannan umarnin na mai bot ne kawai.',
+  antiedit_on_private: '🕵️ *Anti-Edit Ya Kunna (Sirri)*\n\nIn wani ya gyara sako, zan aiko maka da asalin sako ta DM.',
+  antiedit_on_chat: '📣 *Anti-Edit Ya Kunna (A Tattaunawa)*\n\nIn wani ya gyara sako, zan fallasa shi a cikin tattaunawar.',
+  antiedit_off: '🔕 *Anti-Edit Ya Kashe.*',
+  antiedit_status: `━━━━━━━━━━━━━━━━━━━━
+✏️ *SAITUNAN ANTI-EDIT*
+━━━━━━━━━━━━━━━━━━━━
+
+📌 *Halin yanzu:* {status}
+
+*Umarni:*
+• *.antiedit private* — Faɗakar da kai ta DM
+• *.antiedit chat* — Bayyana a rukuni
+• *.antiedit off* — Kashe
+━━━━━━━━━━━━━━━━━━━━`,
 };
