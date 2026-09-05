@@ -46,6 +46,7 @@ Generate your Session ID to connect your WhatsApp account:
   <a href="https://railway.com/deploy/VyW5O7?referralCode=wXCnaU&utm_medium=integration&utm_source=template&utm_campaign=generic"><img src="https://img.shields.io/badge/Railway-0B0D0E?style=for-the-badge&logo=railway&logoColor=white" /></a>
   <a href="https://dashboard.render.com/web/new"><img src="https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white" /></a>
   <a href="https://app.koyeb.com/services/deploy?type=git&repository=Dev-Kango/Queen-Riam-"><img src="https://img.shields.io/badge/Koyeb-121212?style=for-the-badge&logo=koyeb&logoColor=white" /></a>
+  <a href="https://bot-hosting.net/?aff=officialkango"><img src="https://img.shields.io/badge/Bot-Hosting-121212?style=for-the-badge" /></a>
   <a href="https://dashboard.katabump.com/auth/login#14aeb2"><img src="https://img.shields.io/badge/KataBump-5B4B8A?style=for-the-badge&logo=rocket&logoColor=white" /></a>
 </p>
 
