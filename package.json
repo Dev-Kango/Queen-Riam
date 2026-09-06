@@ -1,5 +1,5 @@
 {
-  "name": "Queen Riam",
+  "name": "Dark Gf",
   "version": "1.0.0",
   "description": "WhatsApp Bot",
   "main": "index.js",
@@ -8,12 +8,12 @@
     "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "docker:build": "docker build -t queenriam .",
-    "docker:run": "docker run -e SESSION_ID=$SESSION_ID queenriam"
+    "docker:run": "docker run -e SESSION_ID=$SESSION_ID darkgf"
   },
   "keywords": [
     "whatsapp-bot"
   ],
-  "author": "Hector Manuel",
+  "author": "Wilfred",
   "license": "ISC",
   "engines": {
     "node": "20.x",
