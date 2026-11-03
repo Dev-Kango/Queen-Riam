@@ -32,7 +32,7 @@
 Generate your Session ID to connect your WhatsApp account:
 
 <p align="center">
-  <a href="https://pair.officialkango.space" target="_blank">
+  <a href="https://pair.officialkango.online" target="_blank">
     <img src="https://img.shields.io/badge/Get%20Session%20ID-000000?style=for-the-badge&logo=whatsapp&logoColor=25D366" alt="Get Session ID" />
   </a>
 </p>
